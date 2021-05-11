@@ -33747,7 +33747,7 @@ var Home = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("textarea", {
         placeholder: "Enter Code",
         rows: "19",
-        cols: "50",
+        cols: "10",
         onChange: function onChange(event) {
           return _this2.setState(function (prev) {
             return {
@@ -33968,7 +33968,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61312" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63699" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
