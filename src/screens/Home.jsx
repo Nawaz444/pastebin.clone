@@ -1,8 +1,10 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable prefer-destructuring */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import photo from 'url:../../assets/photo.png';
 
 class Home extends React.Component {
     constructor(props) {
@@ -15,14 +17,18 @@ class Home extends React.Component {
     }
 
     addNew() {
-        const { finalArray, setFinalArray } = this.props;
         const { code, title } = this.state;
 
-        finalArray.push({ code, title });
-        setFinalArray(finalArray);
+        const finalArray = localStorage.getItem('finalArray');
+        const parsedArray = JSON.parse(finalArray);
+
+        parsedArray.push({ code, title });
+
+        const stringify = JSON.stringify(parsedArray);
+        localStorage.setItem('finalArray', stringify);
 
         const history = this.props.history;
-        history.push(`/${finalArray.length - 1}`);
+        history.push(`/${parsedArray.length - 1}`);
     }
 
     render() {
@@ -46,6 +52,7 @@ class Home extends React.Component {
                     }))}
                 />
                 <button type="button" onClick={this.addNew}>Create New Paste</button>
+                <img src={photo} alt="My Profile" />
             </div>
         );
     }

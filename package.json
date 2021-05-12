@@ -17,12 +17,29 @@
     "url": "https://github.com/Nawaz444/pastebin.clone/issues"
   },
   "homepage": "https://github.com/Nawaz444/pastebin.clone#readme",
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-beta.2",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "parcel": "^2.0.0-beta.2",
+    "sharp": "^0.28.2"
+  },
   "dependencies": {
-    "add-gitignore": "^1.1.1",
-    "eslint": "^7.26.0",
     "qs": "^6.10.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "assets",
+        "staticOutDir": "assets/"
+      }
+    ]
   }
 }

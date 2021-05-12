@@ -11,15 +11,16 @@ class Display extends React.Component {
     }
 
     render() {
-        const finalArray = this.props.finalArray;
         const match = this.props.match;
-
         const index = parseInt(match.params.index, 10);
+
+        const finalArray = localStorage.getItem('finalArray');
+        const parsed = JSON.parse(finalArray);
 
         return (
             <div>
-                <h1>{finalArray[index].title}</h1>
-                <p>{finalArray[index].code}</p>
+                <h1>{parsed[index].title}</h1>
+                <p>{parsed[index].code}</p>
             </div>
         );
     }

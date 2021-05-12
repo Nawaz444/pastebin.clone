@@ -1,35 +1,33 @@
-import React from 'react'; 
+import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './screens/Home';
 import Display from './screens/Display';
 
-
 class Pastebinclone extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            finalArray: [],
-        };
-        this.setFinalArray = this.setFinalArray.bind(this);
-    }
+        this.state = {};
 
-    setFinalArray(arr) {
-        this.setState({ finalArray: arr });
+        const finalArray = localStorage.getItem('finalArray');
+        if (finalArray === null) {
+            const emptyArr = [];
+            const stringify = JSON.stringify(emptyArr);
+            localStorage.setItem('finalArray', stringify);
+        }
     }
 
     render() {
-        const { finalArray } = this.state;
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact component={() => <Home finalArray={finalArray} setFinalArray={this.setFinalArray} />} />
-                    <Route path="/:index" component={() => <Display finalArray={finalArray} setFinalArray={this.setFinalArray} />} />
+                    <Route path="/" exact component={() => <Home />} />
+                    <Route path="/:index" exact component={() => <Display />} />
                 </Switch>
             </BrowserRouter>
         );
     }
 }
 
-render(<Pastebinclone/>, document.getElementById('root'));
+render(<Pastebinclone />, document.getElementById('root'));
